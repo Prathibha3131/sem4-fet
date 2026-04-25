@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <title>My Portfolio</title>
+</head>
 <body>
 
-<button onclick="showAlert()">Click Me</button>
+<h1>Welcome to My Portfolio</h1>
+<button onclick="welcomeUser()">Enter Site</button>
 
 <script>
-function showAlert() {
-  alert("Hello! This is a simple alert.");
+function welcomeUser() {
+  let name = prompt("What is your name?");
+  
+  if (name) {
+    alert("Welcome to my portfolio, " + name + "!");
+  } else {
+    alert("Welcome to my portfolio!");
+  }
 }
 </script>
 
