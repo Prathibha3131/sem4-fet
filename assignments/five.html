@@ -1,1 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prompt with Alert</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
+    .container {
+      background: white;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    input {
+      padding: 10px;
+      width: 200px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Enter Your Name</h2>
+    <input type="text" id="nameInput" placeholder="Type here..."><br>
+    <button onclick="showAlert()">Submit</button>
+  </div>
+
+  <script>
+    function showAlert() {
+      let name = document.getElementById("nameInput").value;
+
+      if (name === "") {
+        alert("Please enter something!");
+      } else {
+        alert("Hello, " + name + "!");
+      }
+    }
+  </script>
+
+</body>
+</html>
