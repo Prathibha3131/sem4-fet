@@ -6,13 +6,13 @@
   <style>
     body {
       font-family: Arial;
-      margin: 30px;
+      margin: 40px;
     }
 
     #result {
-      margin-top: 15px;
-      padding: 10px;
-      border: 1px solid #ccc;
+      margin-top: 20px;
+      padding: 15px;
+      border: 2px solid #ccc;
     }
   </style>
 </head>
@@ -23,31 +23,28 @@
 
 <form onsubmit="showData(event)">
   
-  Name:
+ Name:
   <input type="text" id="name" value="Prathibha">
   <br><br>
-
   Education:
-  <select id="edu">
+  <select id='edu'>
     <option>Graduate</option>
     <option>UG</option>
     <option>PG</option>
+    <option>others</option>
   </select>
   <br><br>
-
-  Email:
+   Email:
   <input type="email" id="email">
   <br><br>
-
   Gender:
   <input type="radio" name="gender" value="Male"> Male
   <input type="radio" name="gender" value="Female"> Female
   <br><br>
-
   Languages:
-  <input type="checkbox" value="Java" class="lang"> Java
-  <input type="checkbox" value="C++" class="lang"> C++
-  <input type="checkbox" value="Python" class="lang"> Python
+  <input type="checkbox" value="Java" > Java
+  <input type="checkbox" value="C++" > C++
+  <input type="checkbox" value="Python" > Python
   <br><br>
 
   <button type="submit">Submit</button>
@@ -58,7 +55,7 @@
 
 <script>
 function showData(e) {
-  e.preventDefault();
+ e.preventDefault();
 
   let name = document.getElementById("name").value;
   let edu = document.getElementById("edu").value;
