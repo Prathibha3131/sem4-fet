@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Portfolio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #4facfe, #00f2fe);
+      color: #333;
+      text-align: center;
+      padding: 50px;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      color: #0077cc;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #0077cc;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #005fa3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1 id="name">Welcome!</h1>
+    <p id="portfolioText">Click the button below to create your portfolio.</p>
+    <button onclick="createPortfolio()">Create Portfolio</button>
+  </div>
+
+  <script>
+    function createPortfolio() {
+      let name = prompt("Enter your name:");
+      
+      if (!name) {
+        alert("You didn't enter a name!");
+        return;
+      }
+
+      alert("Welcome, " + name + "! Your portfolio is ready.");
+
+      document.getElementById("name").innerText = name + "'s Portfolio";
+
+      let paragraph = "Hello! My name is " + name + 
+        ". I am passionate about learning new skills and building creative projects. " +
+        "This portfolio showcases my work, interests, and achievements. " +
+        "I am always eager to grow and explore new opportunities in the world of technology.";
+
+      document.getElementById("portfolioText").innerText = paragraph;
+    }
+  </script>
+
+</body>
+</html>
