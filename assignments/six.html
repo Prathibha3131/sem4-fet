@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prathibha | Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #f1f5f9;
+    }
+
+    header {
+      background: #1e293b;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: #38bdf8;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: #f1f5f9;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 40px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .card {
+      background: #1e293b;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 10px;
+    }
+
+    button {
+      background: #38bdf8;
+      border: none;
+      padding: 10px 20px;
+      color: #000;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: #0ea5e9;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #1e293b;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Prathibha</h1>
+  <p>Creative Developer | Designer | Learner</p>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section id="about">
+  <h2>About Me</h2>
+  <div class="card">
+    <p>
+      Hello! I'm Prathibha, a passionate web developer who enjoys creating
+      beautiful and functional websites. I love combining creativity with
+      technology to build engaging digital experiences.
+    </p>
+
+    <p>
+      I am constantly learning new skills and improving my knowledge in
+      front-end and back-end development. My goal is to create user-friendly,
+      responsive, and visually appealing applications.
+    </p>
+
+    <p>
+      Apart from coding, I enjoy exploring new technologies, solving problems,
+      and working on exciting projects that challenge my abilities and help me grow.
+    </p>
+
+    <button onclick="showAlert()">Click Me</button>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="card">
+    <p>
+      Here are some of the projects I have worked on. Each project reflects my
+      dedication to learning and improving my development skills.
+    </p>
+
+    <p>
+      From simple web pages to interactive applications, I enjoy building
+      projects that solve real-world problems and provide value to users.
+    </p>
+
+    <button onclick="askUser()">Give Feedback</button>
+    <p id="response"></p>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="card">
+    <p>
+      If you'd like to collaborate or get in touch, feel free to reach out.
+      I'm always open to new opportunities and exciting ideas.
+    </p>
+
+    <p>
+      Thank you for visiting my portfolio. I hope you enjoyed exploring my work!
+    </p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Prathibha | All Rights Reserved</p>
+</footer>
+
+<script>
+  function showAlert() {
+    alert("Hello! Welcome to Prathibha's Portfolio 🚀");
+  }
+
+  function askUser() {
+    let feedback = prompt("What do you think about my portfolio?");
+    
+    if (feedback) {
+      document.getElementById("response").innerText =
+        "Thank you for your feedback: " + feedback;
+    } else {
+      document.getElementById("response").innerText =
+        "You didn't enter any feedback.";
+    }
+  }
+</script>
+
+</body>
+</html>
