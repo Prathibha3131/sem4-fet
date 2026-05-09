@@ -1,94 +1,104 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Z-Index Example</title>
+  <title>Z-Index with Color Change</title>
 
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 40px;
+      text-align: center;
+      margin-top: 30px;
     }
 
     .container {
       position: relative;
       width: 500px;
       height: 300px;
+      margin: auto;
       border: 2px solid black;
     }
 
-    /* Bottom box */
-    .box1 {
-      position: absolute;
-      top: 40px;
-      left: 40px;
-
-      width: 200px;
-      height: 150px;
-
-      background-color: lightblue;
-      z-index: 1;
-    }
-
-    /* Middle box */
-    .box2 {
-      position: absolute;
-      top: 80px;
-      left: 120px;
-
-      width: 200px;
-      height: 150px;
-
-      background-color: lightgreen;
-      z-index: 2;
-    }
-
-    /* Top box */
-    .box3 {
-      position: absolute;
-      top: 120px;
-      left: 200px;
-
-      width: 200px;
-      height: 150px;
-
-      background-color: coral;
-      z-index: 3;
-    }
-
     .box {
+      position: absolute;
+      width: 200px;
+      height: 150px;
       color: white;
-      font-size: 20px;
+      font-size: 22px;
       font-weight: bold;
+
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+
+    /* Bottom Box */
+    .box1 {
+      top: 40px;
+      left: 40px;
+      background-color: blue;
+      z-index: 1;
+    }
+
+    /* Middle Box */
+    .box2 {
+      top: 80px;
+      left: 120px;
+      background-color: green;
+      z-index: 2;
+    }
+
+    /* Top Box */
+    .box3 {
+      top: 120px;
+      left: 200px;
+      background-color: red;
+      z-index: 3;
+    }
+
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
     }
   </style>
 </head>
 
 <body>
 
-  <h1>Z-Index Example</h1>
-
-  <p>
-    Higher z-index values appear above lower z-index values.
-  </p>
+  <h1>Z-Index Example with Color Change</h1>
 
   <div class="container">
-
-    <div class="box box1">
-      z-index: 1
-    </div>
-
-    <div class="box box2">
-      z-index: 2
-    </div>
-
-    <div class="box box3">
-      z-index: 3
-    </div>
-
+    <div class="box box1" id="box1">Box 1</div>
+    <div class="box box2" id="box2">Box 2</div>
+    <div class="box box3" id="box3">Box 3</div>
   </div>
+
+  <br>
+
+  <button onclick="changeColor('box1')">
+    Change Box 1 Color
+  </button>
+
+  <button onclick="changeColor('box2')">
+    Change Box 2 Color
+  </button>
+
+  <button onclick="changeColor('box3')">
+    Change Box 3 Color
+  </button>
+
+  <script>
+    function changeColor(boxId) {
+
+      // Random color generator
+      let randomColor =
+        '#' + Math.floor(Math.random() * 16777215).toString(16);
+
+      document.getElementById(boxId).style.backgroundColor =
+        randomColor;
+    }
+  </script>
 
 </body>
 </html>
