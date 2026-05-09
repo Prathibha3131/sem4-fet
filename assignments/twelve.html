@@ -1,104 +1,79 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Z-Index with Color Change</title>
+<style>
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin-top: 30px;
-    }
+  body{
+    margin:0;
+    height:45vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+   
+  }
 
-    .container {
-      position: relative;
-      width: 500px;
-      height: 300px;
-      margin: auto;
-      border: 2px solid black;
-    }
+  .buttons{
+    display:flex;
+    gap:10px;
+  }
 
-    .box {
-      position: absolute;
-      width: 200px;
-      height: 150px;
-      color: white;
-      font-size: 22px;
-      font-weight: bold;
+  .container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+  }
 
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+  .box {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    border: 2px solid black;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    z-index: 1;
+  }
 
-    /* Bottom Box */
-    .box1 {
-      top: 40px;
-      left: 40px;
-      background-color: blue;
-      z-index: 1;
-    }
+  #red { background-color: #ff4d4d; }
+  #blue { background-color: #4d94ff; }
+  #green { background-color: #4CAF50; }
 
-    /* Middle Box */
-    .box2 {
-      top: 80px;
-      left: 120px;
-      background-color: green;
-      z-index: 2;
-    }
+  button {
+    padding: 10px 15px;
+    cursor: pointer;
+    font-weight: bold;
+  }
 
-    /* Top Box */
-    .box3 {
-      top: 120px;
-      left: 200px;
-      background-color: red;
-      z-index: 3;
-    }
-
-    button {
-      margin: 10px;
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-  </style>
+</style>
 </head>
-
 <body>
 
-  <h1>Z-Index Example with Color Change</h1>
+<h2>Layer Controller</h2>
 
-  <div class="container">
-    <div class="box box1" id="box1">Box 1</div>
-    <div class="box box2" id="box2">Box 2</div>
-    <div class="box box3" id="box3">Box 3</div>
-  </div>
+<div class="buttons">
+  <button onclick="bringToFront('red')">Red to Front</button>
+  <button onclick="bringToFront('blue')">Blue to Front</button>
+  <button onclick="bringToFront('green')">Green to Front</button>
+</div>
 
-  <br>
+<div class="container">
+  <div id="red" class="box"></div>
+  <div id="blue" class="box"></div>
+  <div id="green" class="box"></div>
+</div>
 
-  <button onclick="changeColor('box1')">
-    Change Box 1 Color
-  </button>
+<script>
 
-  <button onclick="changeColor('box2')">
-    Change Box 2 Color
-  </button>
+let topLayer = 10;
 
-  <button onclick="changeColor('box3')">
-    Change Box 3 Color
-  </button>
+function bringToFront(id) {
+  const targetBox = document.getElementById(id);
+  topLayer++;
+  targetBox.style.zIndex = topLayer;
+}
 
-  <script>
-    function changeColor(boxId) {
-
-      // Random color generator
-      let randomColor =
-        '#' + Math.floor(Math.random() * 16777215).toString(16);
-
-      document.getElementById(boxId).style.backgroundColor =
-        randomColor;
-    }
-  </script>
+</script>
 
 </body>
 </html>
