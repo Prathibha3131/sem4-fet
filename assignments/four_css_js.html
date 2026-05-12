@@ -1,80 +1,78 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Job Opportunities</title>
+<style>
 
-  <style>
-    body {
-      font-family: Arial;
-      margin: 40px;
-    }
+  body{
+    margin:0;
+    height:45vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+   
+  }
 
-    #result {
-      margin-top: 20px;
-      padding: 15px;
-      border: 2px solid #ccc;
-    }
-  </style>
+  .buttons{
+    display:flex;
+    gap:10px;
+  }
+
+  .container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+  }
+
+  .box {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    border: 2px solid black;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    z-index: 1;
+  }
+
+  #red { background-color: #ff4d4d; }
+  #blue { background-color: #4d94ff; }
+  #green { background-color: #4CAF50; }
+
+  button {
+    padding: 10px 15px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+</style>
 </head>
-
 <body>
 
-<h2>JOB OPPORTUNITIES</h2>
+<h2>Layer Controller</h2>
 
-<form onsubmit="showData(event)">
-  
- Name:
-  <input type="text" id="name" value="Prathibha">
-  <br><br>
-  Education:
-  <select id='edu'>
-    <option>Graduate</option>
-    <option>UG</option>
-    <option>PG</option>
-    <option>others</option>
-  </select>
-  <br><br>
-   Email:
-  <input type="email" id="email">
-  <br><br>
-  Gender:
-  <input type="radio" name="gender" value="Male"> Male
-  <input type="radio" name="gender" value="Female"> Female
-  <br><br>
-  Languages:
-  <input type="checkbox" value="Java"  class='lang'> Java
-  <input type="checkbox" value="C++" class='lang'> C++
-  <input type="checkbox" value="Python" class='lang'> Python
-  <br><br>
+<div class="buttons">
+  <button onclick="bringToFront('red')">Red to Front</button>
+  <button onclick="bringToFront('blue')">Blue to Front</button>
+  <button onclick="bringToFront('green')">Green to Front</button>
+</div>
 
-  <button type="submit">Submit</button>
-
-</form>
-
-<div id="result"></div>
+<div class="container">
+  <div id="red" class="box"></div>
+  <div id="blue" class="box"></div>
+  <div id="green" class="box"></div>
+</div>
 
 <script>
-function showData(e) {
- e.preventDefault();
 
-  let name = document.getElementById("name").value;
-  let edu = document.getElementById("edu").value;
-  let email = document.getElementById("email").value;
+let topLayer = 10;
 
-  let gender = document.querySelector('input[name="gender"]:checked');
-  gender = gender ? gender.value : "Not selected";
-
-  let langs = document.querySelectorAll(".lang:checked");
-  let list = [];
-  langs.forEach(l => list.push(l.value));
-
-  document.getElementById("result").innerHTML =
-    "Name: " + name + "<br>" +
-    "Education: " + edu + "<br>" +
-    "Email: " + email + "<br>" +
-    "Gender: " + gender + "<br>" +
-    "Languages: " + list.join(", ");
+function bringToFront(id) {
+  const targetBox = document.getElementById(id);
+  topLayer++;
+  targetBox.style.zIndex = topLayer;
 }
+
 </script>
 
 </body>
