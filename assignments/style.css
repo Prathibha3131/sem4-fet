@@ -29,16 +29,23 @@ li:hover {
   color: #ffd166;
   cursor: pointer;
 }
-button{
-      margin-top: 10px;
-      margin-right: 10px;
-      padding: 8px 15px;
-      background: #00cec9;
-      color: #2d3436;
-      border-radius: 8px;
-     text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-     
+
+button {
+  margin-top: 10px;
+  margin-right: 10px;
+  padding: 8px 15px;
+
+
+  background: #58d68d;  
+  color: white;
+
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
+button:hover {
+  background: #1e8449;   
+}
