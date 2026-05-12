@@ -1,47 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>My Changing Portfolio</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background: #111;
-      color: #fff;
-      padding: 50px;
-    }
-    button {
-      padding: 10px 20px;
-      margin-top: 20px;
-      cursor: pointer;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills Matrix</title>
 </head>
 <body>
 
-  <h1 id="name">My Portfolio</h1>
-  <p id="role">Click the button to personalize</p>
+    <h2>Skills Matrix</h2>
 
-  <button onclick="customize()">Customize</button>
+    <ol>
+        <li>Programming Languages
+            <ul>
+                <li>Python</li>
+                <li>JavaScript</li>
+                <li>Java</li>
+                <li>C++</li>
+            </ul>
+        </li>
 
-  <script>
-    function customize() {
-      alert("Welcome to my portfolio!");
+        <li>Web Development
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>React</li>
+                <li>Node.js</li>
+            </ul>
+        </li>
 
-      let userName = prompt("What is your name?");
-      let userRole = prompt("What do you do?");
+        <li>Databases
+            <ul>
+                <li>MySQL</li>
+                <li>MongoDB</li>
+                <li>PostgreSQL</li>
+            </ul>
+        </li>
 
-      if (userName && userRole) {
-        document.getElementById("name").innerText = userName + "'s Portfolio";
-        document.getElementById("role").innerText = "I am a " + userRole;
+        <li>Tools & Platforms
+            <ul>
+                <li>Git</li>
+                <li>Docker</li>
+                <li>VS Code</li>
+                <li>GitHub</li>
+            </ul>
+        </li>
 
-        alert("Nice to meet you, " + userName + "!");
-      } else {
-        alert("You didn't enter details!");
-      }
-    }
-  </script>
+        <li>Data Analysis
+            <ul>
+                <li>Pandas</li>
+                <li>NumPy</li>
+                <li>Matplotlib</li>
+                <li>Excel</li>
+            </ul>
+        </li>
+    </ol>
 
 </body>
 </html>
