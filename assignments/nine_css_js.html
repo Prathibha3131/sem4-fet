@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Radio Buttons and Checkboxes Example</title>
+    <title>Radio Buttons and Checkboxes 
+    </title>
 
     <style>
         body {
@@ -30,7 +31,7 @@
 
     <form>
 
-        <!-- FIELDSET AND LEGEND -->
+      
         <fieldset>
 
             <legend>Student Information</legend>
@@ -49,7 +50,7 @@
 
             <br><br>
 
-            <!-- CHECKBOXES -->
+         
             <h3>Select Hobbies</h3>
 
             <input type="checkbox" name="hobby" value="Reading">
@@ -86,13 +87,13 @@
 
         function showResult() {
 
-            // GET RADIO BUTTONS
+       
             let genderButtons =
                 document.getElementsByName("gender");
 
             let selectedGender = "";
 
-            // FOR LOOP FOR RADIO BUTTONS
+        
             for (let i = 0; i < genderButtons.length; i++) {
 
                 if (genderButtons[i].checked) {
@@ -102,13 +103,13 @@
                 }
             }
 
-            // GET CHECKBOXES
+         
             let hobbies =
                 document.getElementsByName("hobby");
 
             let selectedHobbies = [];
 
-            // FOR LOOP FOR CHECKBOXES
+           
             for (let i = 0; i < hobbies.length; i++) {
 
                 if (hobbies[i].checked) {
@@ -119,7 +120,7 @@
                 }
             }
 
-            // DISPLAY RESULT
+      
             document.getElementById("output").innerHTML =
 
                 "Selected Gender: " +
