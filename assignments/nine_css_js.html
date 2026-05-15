@@ -1,80 +1,77 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Form Example</title>
+    <title>Pull Down Menu and List Box</title>
 </head>
 <body>
 
-<form>
+<h2>Course Selection Form</h2>
 
-   
-    <fieldset>
-        <legend>Student Registration</legend>
+<!-- Pull Down Menu -->
+<label>Select Course:</label>
 
-        <p>Select Gender:</p>
+<select id="course">
+    <option value="">--Choose Course--</option>
+    <option value="Java">Java</option>
+    <option value="Python">Python</option>
+    <option value="JavaScript">JavaScript</option>
+</select>
 
-        <input type="radio" name="gender" value="Male"> Male
-        <input type="radio" name="gender" value="Female"> Female
-        <input type="radio" name="gender" value="Other"> Other
+<br><br>
 
-        <br><br>
+<!-- List Box -->
+<label>Select Skills:</label>
 
-      
-        <p>Select Hobbies:</p>
+<select id="skills" multiple size="4">
+    <option value="HTML">HTML</option>
+    <option value="CSS">CSS</option>
+    <option value="React">React</option>
+    <option value="NodeJS">NodeJS</option>
+</select>
 
-        <input type="checkbox" name="hobby" value="Reading"> Reading
-        <input type="checkbox" name="hobby" value="Sports"> Sports
-        <input type="checkbox" name="hobby" value="Music"> Music
+<br><br>
 
-        <br><br>
-
-        <button type="button" onclick="showData()">
-            Submit
-        </button>
-
-    </fieldset>
-
-</form>
+<button id="btn">Show Selection</button>
 
 <h3 id="result"></h3>
 
 <script>
 
+// EVENT LISTENER for button
+document.getElementById("btn").addEventListener("click", showData);
+
+// Function
 function showData() {
 
-    let gender = "";
+    // Pull Down Menu value
+    let course =
+        document.getElementById("course").value;
 
-    // Using FOR LOOP with radio buttons
-    let radios = document.getElementsByName("gender");
+    // List Box values
+    let skills =
+        document.getElementById("skills");
 
-    for (let i = 0; i < radios.length; i++) {
+    let selectedSkills = [];
 
-        if (radios[i].checked) {
-            gender = radios[i].value;
+    // FOR LOOP
+    for (let i = 0; i < skills.options.length; i++) {
+
+        if (skills.options[i].selected) {
+
+            selectedSkills.push(
+                skills.options[i].value
+            );
         }
     }
 
-    // Using FOR LOOP with checkboxes
-    let hobbies = document.getElementsByName("hobby");
-
-    let selectedHobbies = [];
-
-    for (let i = 0; i < hobbies.length; i++) {
-
-        if (hobbies[i].checked) {
-            selectedHobbies.push(hobbies[i].value);
-        }
-    }
-
-    // Display result
+    // Display Result
     document.getElementById("result").innerHTML =
-        "Gender: " + gender +
-        "<br>Hobbies: " + selectedHobbies.join(", ");
+        "Selected Course: " + course +
+        "<br>Selected Skills: " +
+        selectedSkills.join(", ");
 }
 
 </script>
 
 </body>
 </html>
-
- 
