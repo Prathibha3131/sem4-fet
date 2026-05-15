@@ -1,77 +1,137 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Pull Down Menu and List Box</title>
+    <title>Radio Buttons and Checkboxes Example</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 20px;
+        }
+
+        fieldset {
+            width: 350px;
+            padding: 15px;
+        }
+
+        legend {
+            font-weight: bold;
+            color: blue;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 8px 15px;
+        }
+    </style>
 </head>
+
 <body>
 
-<h2>Course Selection Form</h2>
+    <form>
 
-<!-- Pull Down Menu -->
-<label>Select Course:</label>
+        <!-- FIELDSET AND LEGEND -->
+        <fieldset>
 
-<select id="course">
-    <option value="">--Choose Course--</option>
-    <option value="Java">Java</option>
-    <option value="Python">Python</option>
-    <option value="JavaScript">JavaScript</option>
-</select>
+            <legend>Student Information</legend>
 
-<br><br>
+            <!-- RADIO BUTTONS -->
+            <h3>Select Gender</h3>
 
-<!-- List Box -->
-<label>Select Skills:</label>
+            <input type="radio" name="gender" value="Male">
+            Male
 
-<select id="skills" multiple size="4">
-    <option value="HTML">HTML</option>
-    <option value="CSS">CSS</option>
-    <option value="React">React</option>
-    <option value="NodeJS">NodeJS</option>
-</select>
+            <input type="radio" name="gender" value="Female">
+            Female
 
-<br><br>
+            <input type="radio" name="gender" value="Other">
+            Other
 
-<button id="btn">Show Selection</button>
+            <br><br>
 
-<h3 id="result"></h3>
+            <!-- CHECKBOXES -->
+            <h3>Select Hobbies</h3>
 
-<script>
+            <input type="checkbox" name="hobby" value="Reading">
+            Reading
 
-// EVENT LISTENER for button
-document.getElementById("btn").addEventListener("click", showData);
+            <br>
 
-// Function
-function showData() {
+            <input type="checkbox" name="hobby" value="Sports">
+            Sports
 
-    // Pull Down Menu value
-    let course =
-        document.getElementById("course").value;
+            <br>
 
-    // List Box values
-    let skills =
-        document.getElementById("skills");
+            <input type="checkbox" name="hobby" value="Music">
+            Music
 
-    let selectedSkills = [];
+            <br>
 
-    // FOR LOOP
-    for (let i = 0; i < skills.options.length; i++) {
+            <input type="checkbox" name="hobby" value="Travel">
+            Travel
 
-        if (skills.options[i].selected) {
+            <br><br>
 
-            selectedSkills.push(
-                skills.options[i].value
-            );
+            <button type="button" onclick="showResult()">
+                Submit
+            </button>
+
+        </fieldset>
+
+    </form>
+
+    <h2 id="output"></h2>
+
+    <script>
+
+        function showResult() {
+
+            // GET RADIO BUTTONS
+            let genderButtons =
+                document.getElementsByName("gender");
+
+            let selectedGender = "";
+
+            // FOR LOOP FOR RADIO BUTTONS
+            for (let i = 0; i < genderButtons.length; i++) {
+
+                if (genderButtons[i].checked) {
+
+                    selectedGender =
+                        genderButtons[i].value;
+                }
+            }
+
+            // GET CHECKBOXES
+            let hobbies =
+                document.getElementsByName("hobby");
+
+            let selectedHobbies = [];
+
+            // FOR LOOP FOR CHECKBOXES
+            for (let i = 0; i < hobbies.length; i++) {
+
+                if (hobbies[i].checked) {
+
+                    selectedHobbies.push(
+                        hobbies[i].value
+                    );
+                }
+            }
+
+            // DISPLAY RESULT
+            document.getElementById("output").innerHTML =
+
+                "Selected Gender: " +
+                selectedGender +
+
+                "<br><br>" +
+
+                "Selected Hobbies: " +
+                selectedHobbies.join(", ");
         }
-    }
 
-    // Display Result
-    document.getElementById("result").innerHTML =
-        "Selected Course: " + course +
-        "<br>Selected Skills: " +
-        selectedSkills.join(", ");
-}
-
-</script>
+    </script>
 
 </body>
 </html>
