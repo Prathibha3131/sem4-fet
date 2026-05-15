@@ -11,12 +11,13 @@
     justify-content:center;
     align-items:center;
     gap:20px;
-   
   }
 
   .buttons{
     display:flex;
     gap:10px;
+    flex-wrap:wrap;
+    justify-content:center;
   }
 
   .container {
@@ -43,10 +44,13 @@
     padding: 10px 15px;
     cursor: pointer;
     font-weight: bold;
+    border: none;
+    border-radius: 5px;
   }
 
 </style>
 </head>
+
 <body>
 
 <h2>Layer Controller</h2>
@@ -55,6 +59,11 @@
   <button onclick="bringToFront('red')">Red to Front</button>
   <button onclick="bringToFront('blue')">Blue to Front</button>
   <button onclick="bringToFront('green')">Green to Front</button>
+
+  <!-- Assignment Button Added -->
+  <a href="https://prathibha3131.github.io/sem4-fet/" target="_blank">
+    <button>Assignment Section</button>
+  </a>
 </div>
 
 <div class="container">
@@ -74,10 +83,6 @@ function bringToFront(id) {
 }
 
 </script>
- 
 
 </body>
-   <a href="https://prathibha3131.github.io/sem4-fet/" target="_blank">
-  <button>Assignment Section</button>
-</a>
 </html>
