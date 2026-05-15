@@ -1,44 +1,83 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>My Changing Portfolio</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background: #111;
-      color: #fff;
-      padding: 50px;
-    }
-    button {
-      padding: 10px 20px;
-      margin-top: 20px;
-      cursor: pointer;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <h1 id="name">My Portfolio</h1>
-  <p id="role">Click the button to personalize</p>
+<ol>
+  <li>FRONTEND DEVELOPMENT
+    <ul>
+      <li id="f1">HTML5</li>
+      <li id="f2">CSS3</li>
+      <li id="f3">JavaScript</li>
+    </ul>
+  </li>
 
-  <button onclick="customize()">Customize</button>
+  <li>STYLING & FRAMEWORK
+    <ul>
+      <li id="s1">Bootstrap</li>
+      <li id="s2">Tailwind CSS</li>
+    </ul>
+  </li>
 
-  <script>
-    function customize() {
-      alert("Welcome to my portfolio!");
+  <li>TOOLS & PLATFORMS
+    <ul>
+      <li id="t1">Git</li>
+      <li id="t2">GitHub</li>
+      <li id="t3">VS Code</li>
+    </ul>
+  </li>
+</ol>
 
-      let userName = prompt("What is your name?");
-      let userRole = prompt("What do you do?");
+<button onclick="changeSkill()">CLICK ME TO CHANGE SKILL</button>
+<script>
+function changeSkill(){
 
-      if (userName && userRole) {
-        document.getElementById("name").innerText = userName + "'s Portfolio";
-        document.getElementById("role").innerText = "I am a " + userRole;
+  let c = prompt("Select Category:\n1-Frontend\n2-Styling\n3-Tools");
+  let id = "";
 
-        alert("Nice to meet you, " + userName + "!");
-      } else {
-        alert("You didn't enter details!");
-      }
+  if(c == 1){
+    let i = prompt("Select Skill Number (1-3)");
+    if(i == 1) id = "f1";
+    else if(i == 2) id = "f2";
+    else if(i == 3) id = "f3";
+    else {
+      alert("Invalid skill");
+      return;
     }
-  </script>
+  }
+  else if(c == 2){
+    let i = prompt("Select Skill Number (1-2)");
+    if(i == 1) id = "s1";
+    else if(i == 2) id = "s2";
+    else {
+      alert("Invalid skill");
+      return;
+    }
+  }
+  else if(c == 3){
+    let i = prompt("Select Skill Number (1-3)");
+    if(i == 1) id = "t1";
+    else if(i == 2) id = "t2";
+    else if(i == 3) id = "t3";
+    else {
+      alert("Invalid skill");
+      return;
+    }
+  }
+  else{
+    alert("Invalid category");
+    return;
+  }
+
+  let newSkill = prompt("Enter new skill");
+  document.getElementById(id).innerHTML = newSkill;
+  alert("Updated!");
+
+}
+</script>
+    
+  
+</body>
+</html>
