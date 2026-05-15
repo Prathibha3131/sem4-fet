@@ -1,138 +1,206 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Radio Buttons and Checkboxes 
-    </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pull-Down Menu and List Box</title>
 
     <style>
-        body {
-            font-family: Arial;
-            margin: 20px;
+
+        *{
+            box-sizing: border-box;
         }
 
-        fieldset {
-            width: 350px;
-            padding: 15px;
+        body{
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #dbeafe, #f0f9ff);
+            margin:0;
+            padding:0;
         }
 
-        legend {
-            font-weight: bold;
-            color: blue;
+        header{
+            background:#1e3a8a;
+            color:white;
+            text-align:center;
+            padding:18px;
+            font-size:28px;
+            font-weight:bold;
         }
 
-        button {
-            margin-top: 10px;
-            padding: 8px 15px;
+        .main{
+            width:90%;
+            max-width:700px;
+            margin:30px auto;
         }
+
+        .section{
+            background:white;
+            padding:25px;
+            border-radius:15px;
+            box-shadow:0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        h2{
+            text-align:center;
+            color:#1e3a8a;
+            margin-bottom:25px;
+        }
+
+        label{
+            font-size:18px;
+            font-weight:bold;
+            color:#222;
+        }
+
+        select{
+            width:100%;
+            padding:12px;
+            margin-top:10px;
+            margin-bottom:20px;
+            border:2px solid #1e3a8a;
+            border-radius:8px;
+            font-size:16px;
+            background:#f8fafc;
+        }
+
+        select option{
+            padding:10px;
+        }
+
+        .output{
+            margin-top:20px;
+            padding:15px;
+            background:#dbeafe;
+            border-left:5px solid #1e3a8a;
+            border-radius:8px;
+            font-size:17px;
+            word-wrap: break-word;
+        }
+
+        footer{
+            text-align:center;
+            background:#1e3a8a;
+            color:white;
+            padding:15px;
+            margin-top:30px;
+        }
+
+        @media(max-width:600px){
+
+            header{
+                font-size:22px;
+                padding:15px;
+            }
+
+            .section{
+                padding:18px;
+            }
+
+            h2{
+                font-size:22px;
+            }
+
+            label{
+                font-size:16px;
+            }
+
+            select{
+                font-size:15px;
+            }
+
+            .output{
+                font-size:15px;
+            }
+        }
+
     </style>
 </head>
 
 <body>
 
-    <form>
+<header>
+    Student Course Selection Portal
+</header>
 
-      
-        <fieldset>
+<div class="main">
 
-            <legend>Student Information</legend>
+    <div class="section">
 
-            <!-- RADIO BUTTONS -->
-            <h3>Select Gender</h3>
+        <h2>Course and Subject Selection</h2>
 
-            <input type="radio" name="gender" value="Male">
-            Male
+        <label>Select Department:</label>
 
-            <input type="radio" name="gender" value="Female">
-            Female
+        <select id="department">
+            <option value="">-- Select Department --</option>
+            <option value="Computer Science Engineering">
+                Computer Science Engineering
+            </option>
+            <option value="Electronics and Communication">
+                Electronics and Communication
+            </option>
+            <option value="Mechanical Engineering">
+                Mechanical Engineering
+            </option>
+            <option value="Civil Engineering">
+                Civil Engineering
+            </option>
+            <option value="Artificial Intelligence">
+                Artificial Intelligence
+            </option>
+        </select>
 
-            <input type="radio" name="gender" value="Other">
-            Other
+        <label>Select Subjects:</label>
 
-            <br><br>
+        <select id="subjects" multiple size="6">
+            <option value="Mathematics">Mathematics</option>
+            <option value="Physics">Physics</option>
+            <option value="Programming in C">Programming in C</option>
+            <option value="Data Structures">Data Structures</option>
+            <option value="Operating Systems">Operating Systems</option>
+            <option value="Web Technology">Web Technology</option>
+        </select>
 
-         
-            <h3>Select Hobbies</h3>
+        <div class="output" id="result">
+            Your selected details will appear here.
+        </div>
 
-            <input type="checkbox" name="hobby" value="Reading">
-            Reading
+    </div>
 
-            <br>
+</div>
 
-            <input type="checkbox" name="hobby" value="Sports">
-            Sports
+<footer>
+    
+</footer>
 
-            <br>
+<script>
 
-            <input type="checkbox" name="hobby" value="Music">
-            Music
+    let department = document.getElementById("department");
+    let subjects = document.getElementById("subjects");
+    let result = document.getElementById("result");
 
-            <br>
+    department.addEventListener("change", displaySelection);
+    subjects.addEventListener("change", displaySelection);
 
-            <input type="checkbox" name="hobby" value="Travel">
-            Travel
+    function displaySelection(){
 
-            <br><br>
+        let selectedDepartment = department.value;
 
-            <button type="button" onclick="showResult()">
-                Submit
-            </button>
+        let selectedSubjects = [];
 
-        </fieldset>
+        for(let option of subjects.options){
 
-    </form>
-
-    <h2 id="output"></h2>
-
-    <script>
-
-        function showResult() {
-
-       
-            let genderButtons =
-                document.getElementsByName("gender");
-
-            let selectedGender = "";
-
-        
-            for (let i = 0; i < genderButtons.length; i++) {
-
-                if (genderButtons[i].checked) {
-
-                    selectedGender =
-                        genderButtons[i].value;
-                }
+            if(option.selected){
+                selectedSubjects.push(option.value);
             }
-
-         
-            let hobbies =
-                document.getElementsByName("hobby");
-
-            let selectedHobbies = [];
-
-           
-            for (let i = 0; i < hobbies.length; i++) {
-
-                if (hobbies[i].checked) {
-
-                    selectedHobbies.push(
-                        hobbies[i].value
-                    );
-                }
-            }
-
-      
-            document.getElementById("output").innerHTML =
-
-                "Selected Gender: " +
-                selectedGender +
-
-                "<br><br>" +
-
-                "Selected Hobbies: " +
-                selectedHobbies.join(", ");
         }
 
-    </script>
+        result.innerHTML =
+        "<b>Selected Department:</b> " + selectedDepartment +
+        "<br><br><b>Selected Subjects:</b> " +
+        selectedSubjects.join(", ");
+    }
+
+</script>
 
 </body>
 </html>
